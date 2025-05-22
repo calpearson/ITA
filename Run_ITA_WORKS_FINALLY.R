@@ -231,6 +231,7 @@ DF$date_month <- format(DF$date_month, "%Y-%m")  # optional if needed for output
 # CFR section
 #............
 
+# Here we will be running the CFR section as the items element
 
 
 
@@ -299,7 +300,7 @@ cit_plot <- ggplot() +
     "Counterfactual (No COVID)" = "darkgreen"
   )) +
   labs(title = "ITS CFR: Observed vs Predicted vs Counterfactual for Citrobacter spp.",
-       x = "Date", y = "Cases", color = "") +
+       x = "Date", y = "CFR (%)", color = "") +
   theme_minimal() +
   theme(legend.position = "bottom")
 
@@ -375,7 +376,7 @@ ent_plot <- ggplot() +
     "Counterfactual (No COVID)" = "darkgreen"
   )) +
   labs(title = "ITS CFR: Observed vs Predicted vs Counterfactual for Enterobacter spp.",
-       x = "Date", y = "Cases", color = "") +
+       x = "Date", y = "CFR (%)", color = "") +
   theme_minimal() +
   theme(legend.position = "bottom")
 
@@ -452,7 +453,7 @@ ser_plot <- ggplot() +
     "Counterfactual (No COVID)" = "darkgreen"
   )) +
   labs(title = "ITS CFR: Observed vs Predicted vs Counterfactual for Serratia spp.",
-       x = "Date", y = "Cases", color = "") +
+       x = "Date", y = "CFR (%)", color = "") +
   theme_minimal() +
   theme(legend.position = "bottom")
 
