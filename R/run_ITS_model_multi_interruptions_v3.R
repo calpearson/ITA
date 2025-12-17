@@ -164,33 +164,33 @@ example_ita_data <- function() {
   return(df)
 }
 
-# Generate dataset
-df <- example_ita_data()
-
-# Define interruptions
-interruptions <- data.frame(
-  start = as.Date(c("2020-01-01", "2021-06-01", "2022-09-01")),
-  end   = as.Date(c("2020-06-01", "2021-12-01", "2023-03-01"))
-)
-
-# Run the multi-interruption ITS
-results <- run_ITS_model_multi(
-  df = df,
-  #organism_name = "Influenza-like Illness",
-  pop_include = TRUE,
-  interruptions = interruptions,
-  plot_title = "Influenza ITS Analysis",
-  y_axis_label = "Incidence Rate per 100,000"
-)
-
-# View outputs
-results$gt_table
-results$plot
-
-# Extract interruption coefficients for level/slope changes
-coef_df <- results$model_summary %>%
-  filter(grepl("^int|t2_int", term)) %>%  # keep only interruption terms
-  mutate(
-    type = ifelse(grepl("^int", term), "Level change", "Slope change"),
-    interruption = gsub("int|t2_int", "", term)
-  )
+# # Generate dataset
+# df <- example_ita_data()
+# 
+# # Define interruptions
+# interruptions <- data.frame(
+#   start = as.Date(c("2020-01-01", "2021-06-01", "2022-09-01")),
+#   end   = as.Date(c("2020-06-01", "2021-12-01", "2023-03-01"))
+# )
+# 
+# # Run the multi-interruption ITS
+# results <- run_ITS_model_multi(
+#   df = df,
+#   #organism_name = "Influenza-like Illness",
+#   pop_include = TRUE,
+#   interruptions = interruptions,
+#   plot_title = "Influenza ITS Analysis",
+#   y_axis_label = "Incidence Rate per 100,000"
+# )
+# 
+# # View outputs
+# results$gt_table
+# results$plot
+# 
+# # Extract interruption coefficients for level/slope changes
+# coef_df <- results$model_summary %>%
+#   filter(grepl("^int|t2_int", term)) %>%  # keep only interruption terms
+#   mutate(
+#     type = ifelse(grepl("^int", term), "Level change", "Slope change"),
+#     interruption = gsub("int|t2_int", "", term)
+#   )
